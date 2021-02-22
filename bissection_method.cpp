@@ -7,11 +7,11 @@ typedef double(*Function)(double);
 
 double MyFunction(double x){
 	double C = 4700*10^-6;
-	double R = 789.34;
+	double R = 232.71;
 	double omega = 2*M_PI*60;
-	double theta = 0.499772408013*M_PI;
+	double theta = 0.500771978586*M_PI;
 	
-	double y = sin(x) - sin(theta) * exp(-(2*M_PI+x-theta)/(omega*R*C));
+	double y = sin(x) - sin(theta) * exp(-(M_PI+x-theta)/(omega*R*C));
 	return y;
 }
 
@@ -53,14 +53,15 @@ void BissectionMethod(Function function, double x0, double x1, double error){
 		i++;
 	}
 	
-	cout<<"O ponto desejado eh "<< xn << " com erro de " << actual_error << endl;
+	cout<<"O alpha desejado" << " para um theta de " << "0.500771978586\u03C0"<<  " eh aproximadamente: ";
+	printf("%.16f\u03C0 com erro de %.10f\n", xn/M_PI, actual_error);
 }
 
 
 
 int main() {
-	double x0 = 0, x1 = 0.5*M_PI, error= 0.00001;
-	
+	double x0 = 0*M_PI, x1 = 0.5*M_PI, error= 0.00001;
+	cout << MyFunction(x1) << endl;
 	Function function = MyFunction;
 	
 	
